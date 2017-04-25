@@ -13,7 +13,7 @@ namespace TestCaseExport
     public partial class FrmMain : Form
     {
         private Data _data = new Data();
-        
+
         private delegate void Execute();
 
         public FrmMain()
@@ -44,19 +44,11 @@ namespace TestCaseExport
                 {
                     this.comBoxTestPlan.SelectedItem = _data.SelectedTestPlan;
                 }
-                if (args.PropertyName == "SelectedTestSuite")
-                {
-                    this.comBoxTestSuite.SelectedItem = _data.SelectedTestSuite;
-                }
             };
 
             this.comBoxTestPlan.SelectedIndexChanged += (sender, args) =>
             {
                 _data.SelectedTestPlan = this.comBoxTestPlan.SelectedItem as ITestPlan;
-            };
-            this.comBoxTestSuite.SelectedIndexChanged += (sender, args) =>
-            {
-                _data.SelectedTestSuite = this.comBoxTestSuite.SelectedItem as Data.SelectableTestSuite;
             };
         }
 
@@ -93,7 +85,7 @@ namespace TestCaseExport
             try
             {
                 var filename = _data.ExportFileName;
-                new Exporter().Export(filename, _data.SelectedTestSuite.TestSuite);
+                new Exporter().Export(filename, _data.SelectedTestPlan);
                 Process.Start(filename);
 
                 _data.SaveSettings(Settings.Default);

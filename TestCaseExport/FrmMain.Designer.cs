@@ -32,10 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comBoxTestSuite = new System.Windows.Forms.ComboBox();
-            this.bsData = new System.Windows.Forms.BindingSource(this.components);
             this.testSuitesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblTestSuite = new System.Windows.Forms.Label();
+            this.bsData = new System.Windows.Forms.BindingSource(this.components);
             this.comBoxTestPlan = new System.Windows.Forms.ComboBox();
             this.testPlansBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblTestPlan = new System.Windows.Forms.Label();
@@ -54,8 +52,8 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testSuitesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testPlansBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -63,7 +61,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(10, 12);
@@ -74,8 +72,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comBoxTestSuite);
-            this.groupBox1.Controls.Add(this.lblTestSuite);
             this.groupBox1.Controls.Add(this.comBoxTestPlan);
             this.groupBox1.Controls.Add(this.lblTestPlan);
             this.groupBox1.Controls.Add(this.btnTeamProject);
@@ -84,56 +80,33 @@
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(260, 164);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(529, 195);
+            this.groupBox1.Size = new System.Drawing.Size(529, 152);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Source";
             // 
-            // comBoxTestSuite
+            // testSuitesBindingSourcea
             // 
-            this.comBoxTestSuite.DataSource = this.testSuitesBindingSource;
-            this.comBoxTestSuite.DisplayMember = "Title";
-            this.comBoxTestSuite.ValueMember = "Title";
-            this.comBoxTestSuite.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comBoxTestSuite.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comBoxTestSuite.FormattingEnabled = true;
-            this.comBoxTestSuite.Location = new System.Drawing.Point(11, 158);
-            this.comBoxTestSuite.Name = "comBoxTestSuite";
-            this.comBoxTestSuite.Size = new System.Drawing.Size(452, 23);
-            this.comBoxTestSuite.TabIndex = 3;
+            this.testSuitesBindingSource.DataMember = "TestSuites";
+            this.testSuitesBindingSource.DataSource = this.bsData;
             // 
             // bsData
             // 
             this.bsData.AllowNew = false;
             this.bsData.DataSource = typeof(TestCaseExport.Data);
             // 
-            // testSuitesBindingSource
-            // 
-            this.testSuitesBindingSource.DataMember = "TestSuites";
-            this.testSuitesBindingSource.DataSource = this.bsData;
-            // 
-            // lblTestSuite
-            // 
-            this.lblTestSuite.AutoSize = true;
-            this.lblTestSuite.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTestSuite.Location = new System.Drawing.Point(6, 138);
-            this.lblTestSuite.Name = "lblTestSuite";
-            this.lblTestSuite.Size = new System.Drawing.Size(66, 17);
-            this.lblTestSuite.TabIndex = 0;
-            this.lblTestSuite.Text = "Test Suite:";
-            // 
             // comBoxTestPlan
             // 
             this.comBoxTestPlan.DataSource = this.testPlansBindingSource;
             this.comBoxTestPlan.DisplayMember = "Name";
-            this.comBoxTestPlan.ValueMember = "Name";
             this.comBoxTestPlan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comBoxTestPlan.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comBoxTestPlan.FormattingEnabled = true;
             this.comBoxTestPlan.Location = new System.Drawing.Point(11, 99);
             this.comBoxTestPlan.Name = "comBoxTestPlan";
-            this.comBoxTestPlan.Size = new System.Drawing.Size(452, 23);
+            this.comBoxTestPlan.Size = new System.Drawing.Size(452, 29);
             this.comBoxTestPlan.TabIndex = 2;
+            this.comBoxTestPlan.ValueMember = "Name";
             // 
             // testPlansBindingSource
             // 
@@ -146,7 +119,7 @@
             this.lblTestPlan.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTestPlan.Location = new System.Drawing.Point(6, 79);
             this.lblTestPlan.Name = "lblTestPlan";
-            this.lblTestPlan.Size = new System.Drawing.Size(62, 17);
+            this.lblTestPlan.Size = new System.Drawing.Size(76, 21);
             this.lblTestPlan.TabIndex = 0;
             this.lblTestPlan.Text = "Test Plan:";
             // 
@@ -167,7 +140,7 @@
             this.txtTeamProject.Location = new System.Drawing.Point(11, 43);
             this.txtTeamProject.Name = "txtTeamProject";
             this.txtTeamProject.ReadOnly = true;
-            this.txtTeamProject.Size = new System.Drawing.Size(453, 24);
+            this.txtTeamProject.Size = new System.Drawing.Size(453, 28);
             this.txtTeamProject.TabIndex = 0;
             // 
             // lblTeamProject
@@ -176,7 +149,7 @@
             this.lblTeamProject.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTeamProject.Location = new System.Drawing.Point(6, 21);
             this.lblTeamProject.Name = "lblTeamProject";
-            this.lblTeamProject.Size = new System.Drawing.Size(87, 17);
+            this.lblTeamProject.Size = new System.Drawing.Size(105, 21);
             this.lblTeamProject.TabIndex = 0;
             this.lblTeamProject.Text = "Team-Project:";
             // 
@@ -211,7 +184,7 @@
             this.txtSaveFile.Location = new System.Drawing.Point(11, 42);
             this.txtSaveFile.Name = "txtSaveFile";
             this.txtSaveFile.ReadOnly = true;
-            this.txtSaveFile.Size = new System.Drawing.Size(411, 24);
+            this.txtSaveFile.Size = new System.Drawing.Size(411, 28);
             this.txtSaveFile.TabIndex = 7;
             // 
             // label1
@@ -220,7 +193,7 @@
             this.label1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(6, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 17);
+            this.label1.Size = new System.Drawing.Size(257, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Specify File to Save Exported Script:";
             // 
@@ -267,7 +240,7 @@
             this.lblWelcomeMessage.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcomeMessage.Location = new System.Drawing.Point(6, 18);
             this.lblWelcomeMessage.Name = "lblWelcomeMessage";
-            this.lblWelcomeMessage.Size = new System.Drawing.Size(501, 102);
+            this.lblWelcomeMessage.Size = new System.Drawing.Size(627, 126);
             this.lblWelcomeMessage.TabIndex = 4;
             this.lblWelcomeMessage.Text = resources.GetString("lblWelcomeMessage.Text");
             // 
@@ -292,7 +265,7 @@
             // FrmMain
             // 
             this.AcceptButton = this.btnExport;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.CancelButton = this.btnCancel;
@@ -314,8 +287,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testSuitesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testPlansBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -329,8 +302,6 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comBoxTestSuite;
-        private System.Windows.Forms.Label lblTestSuite;
         private System.Windows.Forms.ComboBox comBoxTestPlan;
         private System.Windows.Forms.Label lblTestPlan;
         private System.Windows.Forms.Button btnTeamProject;
