@@ -68,7 +68,11 @@ namespace TestCaseExport
 
                             var userStoryText = sheet.Cells[firstRow, 2, row - 1, 2];
                             userStoryText.Merge = true;
-                            CleanupText(userStoryText, testCase.WorkItem.WorkItemLinks.Cast<WorkItemLink>().FirstOrDefault(x => x.LinkTypeEnd.Name == "Tests").TargetId.ToString(), replacements);
+
+                            //find all linked stories via "Tests" link type instead of "first match"
+                            string linkedStories = testCase.WorkItem.WorkItemLinks.Cast<WorkItemLink>().Where<WorkItemLink>(x => x.LinkTypeEnd.Name == "Tests").ToList().Select<WorkItemLink, string>((a, b) => a.TargetId.ToString()).Aggregate((a, b) => a + "\n" + b);
+
+                            CleanupText(userStoryText, linkedStories, replacements);
                             userStoryText.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                             userStoryText.Style.VerticalAlignment = ExcelVerticalAlignment.Top;
                         }
